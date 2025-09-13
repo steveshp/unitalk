@@ -97,10 +97,26 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // 앱 로고/타이틀
-                  Icon(
-                    Icons.mic_none,
-                    size: isMobile ? 60 : 80,
-                    color: Colors.blueAccent,
+                  Container(
+                    width: isMobile ? 80 : 100,
+                    height: isMobile ? 80 : 100,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blueAccent.withOpacity(0.3),
+                          blurRadius: 20,
+                          spreadRadius: 5,
+                        ),
+                      ],
+                    ),
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/images/unitalk.png',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ).animate().scale(duration: 600.ms),
 
                   const SizedBox(height: 16),

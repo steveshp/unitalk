@@ -144,11 +144,20 @@ class RecordingPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      child: Icon(
-                        isRecording || isPaused ? Icons.stop : Icons.mic,
-                        color: Colors.white,
-                        size: 40,
-                      ),
+                      child: isRecording || isPaused
+                        ? Icon(
+                            Icons.stop,
+                            color: Colors.white,
+                            size: 40,
+                          )
+                        : ClipOval(
+                            child: Image.asset(
+                              'assets/images/unitalk.png',
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                     ).animate(
                       onPlay: (controller) {
                         if (isRecording) {
