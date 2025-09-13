@@ -7,7 +7,7 @@ import '../widgets/transcription_display.dart';
 import '../../data/models/audio_state.dart';
 
 class RecordingPage extends StatelessWidget {
-  RecordingPage({Key? key}) : super(key: key);
+  RecordingPage({super.key});
 
   final AudioController audioController = Get.put(AudioController());
 
@@ -41,7 +41,7 @@ class RecordingPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.blue.withOpacity(0.1),
+                    color: Colors.blue.withValues(alpha: 0.1),
                     blurRadius: 10,
                     spreadRadius: 2,
                   ),
@@ -76,7 +76,7 @@ class RecordingPage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xFF0F0F1E),
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.blue.withOpacity(0.3)),
+                border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
               ),
               child: Obx(() => DropdownButton<String>(
                     value: audioController.selectedLanguage.value,
@@ -138,7 +138,7 @@ class RecordingPage extends StatelessWidget {
                             color: (isRecording || isPaused
                                     ? Colors.redAccent
                                     : Colors.blueAccent)
-                                .withOpacity(0.4),
+                                .withValues(alpha: 0.4),
                             blurRadius: 20,
                             spreadRadius: 5,
                           ),
@@ -250,9 +250,9 @@ class RecordingPage extends StatelessWidget {
                   margin: const EdgeInsets.all(16),
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Colors.red.withOpacity(0.1),
+                    color: Colors.red.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.red.withOpacity(0.3)),
+                    border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
                   ),
                   child: Text(
                     audioController.errorMessage.value,
@@ -296,7 +296,7 @@ class RecordingPage extends StatelessWidget {
                         onChanged: (_) {
                           audioController.toggleAutoTranscribe();
                         },
-                        activeColor: Colors.blueAccent,
+                        activeThumbColor: Colors.blueAccent,
                       )),
                 ],
               ),

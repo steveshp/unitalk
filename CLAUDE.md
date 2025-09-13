@@ -96,6 +96,41 @@ flutter pub get
 ### API 구성
 API 키는 `lib/core/constants/api_config.dart`에 중앙 집중화되어 있습니다. 실제 API 키를 커밋하지 마십시오 - 커밋에는 플레이스홀더 값을 사용하세요.
 
+## Flutter API 변경 사항 (중요)
+
+### Color.withOpacity() Deprecated
+Flutter 최신 버전(3.35+)에서 `withOpacity()` 메서드가 deprecated되었습니다. 항상 `withValues(alpha: value)`를 사용하세요:
+
+```dart
+// ❌ 잘못된 사용 (deprecated)
+color: Colors.blue.withOpacity(0.3)
+
+// ✅ 올바른 사용
+color: Colors.blue.withValues(alpha: 0.3)
+```
+
+### Switch activeColor Deprecated
+Switch 위젯의 `activeColor` 속성이 deprecated되었습니다. `activeThumbColor`를 사용하세요:
+
+```dart
+// ❌ 잘못된 사용 (deprecated)
+Switch(activeColor: Colors.blue, ...)
+
+// ✅ 올바른 사용
+Switch(activeThumbColor: Colors.blue, ...)
+```
+
+### Constructor Key Parameter
+생성자에서 Key 파라미터는 `super.key`를 사용하세요:
+
+```dart
+// ❌ 이전 방식
+const MyWidget({Key? key}) : super(key: key);
+
+// ✅ 새로운 방식
+const MyWidget({super.key});
+```
+
 ## 중요한 구현 세부사항
 
 ### 웹 플랫폼 특성

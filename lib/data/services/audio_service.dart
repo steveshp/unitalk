@@ -9,7 +9,6 @@ class AudioService {
   final StreamController<double> _amplitudeController = StreamController<double>.broadcast();
 
   Timer? _amplitudeTimer;
-  DateTime? _recordingStartTime;
   String? _currentPath;
 
   Stream<AudioState> get stateStream => _stateController.stream;
@@ -71,7 +70,6 @@ class AudioService {
         await _recorder.start(config, path: _currentPath!);
       }
 
-      _recordingStartTime = DateTime.now();
       _startAmplitudeMonitoring();
       _updateState(_currentState.copyWith(
         status: RecordingStatus.recording,
@@ -85,43 +83,6 @@ class AudioService {
     }
   }
 
-  void _handleWebRecording(Stream<Uint8List> stream) {
-    final List<Uint8List> audioChunks = [];
-
-    stream.listen(
-      (chunk) {
-        audioChunks.add(chunk);
-        // Update duration
-        if (_recordingStartTime != null) {
-          final duration = DateTime.now().difference(_recordingStartTime!);
-          _updateState(_currentState.copyWith(
-            duration: duration,
-          ));
-        }
-      },
-      onDone: () {
-        // Combine all chunks into single audio data
-        final totalLength = audioChunks.fold(0, (sum, chunk) => sum + chunk.length);
-        final audioData = Uint8List(totalLength);
-        int offset = 0;
-        for (final chunk in audioChunks) {
-          audioData.setRange(offset, offset + chunk.length, chunk);
-          offset += chunk.length;
-        }
-
-        _updateState(_currentState.copyWith(
-          audioData: audioData,
-          status: RecordingStatus.stopped,
-        ));
-      },
-      onError: (error) {
-        debugPrint('Web recording error: $error');
-        _updateState(_currentState.copyWith(
-          error: 'Recording error: $error',
-        ));
-      },
-    );
-  }
 
   Future<void> pauseRecording() async {
     try {

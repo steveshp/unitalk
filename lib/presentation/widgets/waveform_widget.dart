@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:get/get.dart';
 
 class WaveformWidget extends StatelessWidget {
   final double amplitude;
@@ -10,12 +9,12 @@ class WaveformWidget extends StatelessWidget {
   final double height;
 
   const WaveformWidget({
-    Key? key,
+    super.key,
     required this.amplitude,
     required this.isRecording,
     this.waveColor = Colors.blue,
     this.height = 100,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class WaveformWidget extends StatelessWidget {
       },
     ).shimmer(
       duration: const Duration(seconds: 2),
-      color: waveColor.withOpacity(0.3),
+      color: waveColor.withValues(alpha: 0.3),
     );
   }
 }
@@ -79,7 +78,7 @@ class WaveformPainter extends CustomPainter {
 
     // Draw center line
     final centerLinePaint = Paint()
-      ..color = waveColor.withOpacity(0.2)
+      ..color = waveColor.withValues(alpha: 0.2)
       ..strokeWidth = 1.0
       ..style = PaintingStyle.stroke;
 

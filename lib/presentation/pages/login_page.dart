@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../data/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -105,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.blueAccent.withOpacity(0.3),
+                          color: Colors.blueAccent.withValues(alpha: 0.3),
                           blurRadius: 20,
                           spreadRadius: 5,
                         ),
@@ -150,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.blue.withOpacity(0.1),
+                          color: Colors.blue.withValues(alpha: 0.1),
                           blurRadius: 20,
                           spreadRadius: 5,
                         ),
@@ -168,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                             prefixIcon: const Icon(Icons.email, color: Colors.white60),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: Colors.blue.withOpacity(0.3)),
+                              borderSide: BorderSide(color: Colors.blue.withValues(alpha: 0.3)),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -190,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                             prefixIcon: const Icon(Icons.lock, color: Colors.white60),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: Colors.blue.withOpacity(0.3)),
+                              borderSide: BorderSide(color: Colors.blue.withValues(alpha: 0.3)),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -237,7 +237,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: OutlinedButton(
                             onPressed: _isLoading ? null : _handleAnonymousSignIn,
                             style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: Colors.blue.withOpacity(0.5)),
+                              side: BorderSide(color: Colors.blue.withValues(alpha: 0.5)),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12),
                               ),
@@ -279,9 +279,9 @@ class _LoginPageState extends State<LoginPage> {
                             margin: const EdgeInsets.only(top: 16),
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: Colors.red.withOpacity(0.1),
+                              color: Colors.red.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.red.withOpacity(0.3)),
+                              border: Border.all(color: Colors.red.withValues(alpha: 0.3)),
                             ),
                             child: Text(
                               _errorMessage,
