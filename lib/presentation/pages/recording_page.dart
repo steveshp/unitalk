@@ -19,7 +19,7 @@ class RecordingPage extends StatelessWidget {
         backgroundColor: const Color(0xFF0F0F1E),
         elevation: 0,
         title: const Text(
-          'Unitolk - Speech to Text',
+          'Unitalk - Speech to Text',
           style: TextStyle(
             color: Colors.white,
             fontSize: 24,

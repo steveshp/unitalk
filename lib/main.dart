@@ -13,12 +13,12 @@ void main() async {
   await Firebase.initializeApp(
     options: const FirebaseOptions(
       apiKey: "AIzaSyBGExample",  // Firebase 프로젝트 설정에서 가져오기
-      authDomain: "unitolk.firebaseapp.com",
-      projectId: "unitolk",
-      storageBucket: "unitolk.appspot.com",
+      authDomain: "unitalk.firebaseapp.com",
+      projectId: "unitalk",
+      storageBucket: "unitalk.appspot.com",
       messagingSenderId: "123456789",
       appId: "1:123456789:web:abcdef123456",
-      databaseURL: "https://unitolk-default-rtdb.firebaseio.com",
+      databaseURL: "https://unitalk-default-rtdb.firebaseio.com",
     ),
   );
 
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
     final authService = AuthService();
 
     return GetMaterialApp(
-      title: 'Unitolk - Speech to Text Translator',
+      title: 'Unitalk - Speech to Text',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

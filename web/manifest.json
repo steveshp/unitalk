@@ -1,11 +1,11 @@
 {
-    "name": "unitolk",
-    "short_name": "unitolk",
+    "name": "Unitalk - Speech to Text",
+    "short_name": "Unitalk",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "online translator",
+    "background_color": "#1A1A2E",
+    "theme_color": "#1A1A2E",
+    "description": "Speech to Text Web Application with AI-powered transcription",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

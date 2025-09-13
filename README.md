@@ -1,4 +1,4 @@
-# Unitolk - Real-time Speech-to-Text Translator
+# Unitalk - Real-time Speech-to-Text Web Application
 
 A Flutter web application that provides real-time speech-to-text transcription using OpenAI's Whisper AI model, with support for multiple languages and translation capabilities.
 

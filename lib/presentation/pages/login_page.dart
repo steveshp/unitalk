@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 16),
 
                   Text(
-                    'Unitolk',
+                    'Unitalk',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: isMobile ? 32 : 40,
